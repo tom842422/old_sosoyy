@@ -29,14 +29,14 @@ browser.maximize_window()
 browser.implicitly_wait(20)
 browser.get('https://srm.sosoyy.com/#/login')
 # 账号
-browser.find_element(By.ID, 'mobile').click()
-browser.find_element(By.ID, 'mobile').send_keys(13518101893)
+browser.find_element(By.XPATH, '//*[@id="form_item_mobile"]').click()
+browser.find_element(By.XPATH, '//*[@id="form_item_mobile"]').send_keys(13518101893)
 # 密码
-browser.find_element(By.ID, "password").click()
-browser.find_element(By.ID, "password").send_keys(123456)
+browser.find_element(By.XPATH, '//*[@id="form_item_password"]').click()
+browser.find_element(By.XPATH, '//*[@id="form_item_password"]').send_keys(123456)
 # 验证码
-browser.find_element(By.XPATH, '//*[@id="captcha"]/input').click()
-browser.find_element(By.XPATH, '//*[@id="captcha"]/input').send_keys('2usw')
+browser.find_element(By.XPATH, '//*[@id="form_item_captcha"]').click()
+browser.find_element(By.XPATH, '//*[@id="form_item_captcha"]').send_keys('2usw')
 # 登录
 browser.find_element(
     By.XPATH, '//*[@id="loginPage"]/div[2]/div/div[2]/button').click()
