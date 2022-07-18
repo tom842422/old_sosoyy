@@ -1,4 +1,3 @@
-from webbrowser import Chrome
 import pywinauto
 import os
 import time
