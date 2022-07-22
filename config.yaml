@@ -14,6 +14,12 @@ Login :
 
 GetOrderList :
               url : http://192.168.1.50/api/Login/Login
+              data :
+                    captchaUUID : sss
+              header :
+                    Accept : text/plain
+
+
 
 
 
