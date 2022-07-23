@@ -1,4 +1,4 @@
-/RebateAgreement/RebatePurcWarehousing :
+"采购入库单" :
     uniqueCode : ${random.int[1000000,2000000]}
     pwNumber : ${random.int[2000000,3000000]}
     serialNumberTime : "2022-6-6 14:33:34"
@@ -12,3 +12,5 @@
               drugsBase_Specification : "20片/盒"
               drugsBase_Manufacturer : "重庆金鹏纺织卫生用品有限公司"
               approvalNumber : "国药准字Z20063568"
+
+
