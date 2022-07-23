@@ -1,0 +1,14 @@
+/RebateAgreement/RebatePurcWarehousing :
+    uniqueCode : ${random.int[1000000,2000000]}
+    pwNumber : ${random.int[2000000,3000000]}
+    serialNumberTime : "2022-6-6 14:33:34"
+    supplierNameId : ${random.int[2000,5000]}
+    details :
+              uniqueCode : ${uniqueCode}
+              pwNumber : ${pwNumber}
+              psn : ${random.int[5000000,8000000]}
+              priceTaxi : ${random.int[10,20]}
+              drugsBase_DrugName : "阿莫西林"
+              drugsBase_Specification : "20片/盒"
+              drugsBase_Manufacturer : "重庆金鹏纺织卫生用品有限公司"
+              approvalNumber : "国药准字Z20063568"
