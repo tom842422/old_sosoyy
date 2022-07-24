@@ -11,7 +11,6 @@ import yaml
 import json
 
 
-
 class ReadYaml:
     uri_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config',
                             'manufacturing_uri.yaml')

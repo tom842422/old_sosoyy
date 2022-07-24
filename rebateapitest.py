@@ -5,6 +5,7 @@ from untils.read_yaml import ReadYaml
 from untils.read_ini import ReadIni
 import yaml
 import random
+from untils.embellish_yaml import render
 
 
 class RTS:
@@ -12,6 +13,7 @@ class RTS:
         self.filename = filename
         self.hosttype = hosttype
 
+    @render
     def rts(self):
         url = ReadIni(self.hosttype).read_ini() + ReadYaml(self.filename).get_uri()
         data_dict = ReadYaml(self.filename).get_datas()

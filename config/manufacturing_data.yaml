@@ -2,14 +2,14 @@
     secretKey : 123456
     data :
      -
-      uniqueCode : weg4w4g
-      pwNumber : B5599595
+      uniqueCode : {{ ue_code() }}
+      pwNumber : {{ number() }}
       serialNumberTime : "2022-2-3 15:40:00"
       supplierNameId : 12345
       details :
         -
-                uniqueCode : weg4w4g
-                pwNumber : B5599595
+                uniqueCode : {{ ue_code() }}
+                pwNumber : {{ number() }}
                 psn : 13343545
                 quantityReal : 2000
                 price : 2.389
