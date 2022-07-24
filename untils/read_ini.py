@@ -6,31 +6,21 @@
 # @Software: PyCharm
 import configparser
 import os
-import yaml
-
-ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'setting.ini')
-print(ini_path)
-
-# class ReadIni:
-#     ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'config','setting.ini')
-#     def
-
-# def get_datas(file_neme, Document_type):
-#     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', file_neme)
-#     if 'yaml' in file_neme:
-#         with open(path, 'r', encoding='utf8') as f:
-#             r_yaml = yaml.load(f, Loader=yaml.FullLoader)
-#             return r_yaml
-#     elif 'ini' in file_neme:
-#         conf = configparser.ConfigParser()
-#         conf.read(path, encoding='utf8')
-#         return conf
-#     else:
-#         print('无法处理的文件类型')
-#
 
 
+class ReadIni:
+    ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'setting.ini')
 
-# if __name__ == '__main__':
-#     r =
-#     print(r)
+    def __init__(self, hosttype):
+        self.hosttype = hosttype
+
+    def read_ini(self):
+        conf = configparser.ConfigParser()
+        conf.read(self.ini_path, encoding='utf8')
+        res_host = conf['host'][self.hosttype]
+        return res_host
+
+
+if __name__ == '__main__':
+    r = ReadIni('对接接口').read_ini()
+    print(r)
