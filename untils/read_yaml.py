@@ -5,8 +5,12 @@
 # @File    : read_yaml.py
 # @Software: PyCharm
 import os
+
+import jinja2
 import yaml
 import json
+
+from untils.embellish_yaml import render
 
 
 class ReadYaml:
@@ -27,8 +31,7 @@ class ReadYaml:
     def get_datas(self):
         with open(self.data_path, 'r', encoding='utf8') as f:
             data_yaml = yaml.load(f, Loader=yaml.FullLoader)
-        datas = data_yaml[self.filename]
-        return datas
+        return data_yaml[self.filename]
 
 
 if __name__ == '__main__':

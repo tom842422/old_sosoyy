@@ -1,16 +1,41 @@
 "采购入库单" :
-    uniqueCode : ${random.int[1000000,2000000]}
-    pwNumber : ${random.int[2000000,3000000]}
-    serialNumberTime : "2022-6-6 14:33:34"
-    supplierNameId : ${random.int[2000,5000]}
-    details :
-              uniqueCode : ${uniqueCode}
-              pwNumber : ${pwNumber}
-              psn : ${random.int[5000000,8000000]}
-              priceTaxi : ${random.int[10,20]}
-              drugsBase_DrugName : "阿莫西林"
-              drugsBase_Specification : "20片/盒"
-              drugsBase_Manufacturer : "重庆金鹏纺织卫生用品有限公司"
-              approvalNumber : "国药准字Z20063568"
+    "secretKey" : "123456"
+    "data" :
+     -
+      "uniqueCode" : "weg4w4g"
+      "pwNumber" : "B5599595"
+      "serialNumberTime" : "2022-2-3 15:40:00"
+      "supplierNameId" : "32131313123"
+      "details" :
+        -
+                "uniqueCode" : weg4w4g
+                "pwNumber" : B5599595
+                "psn" : 13343545
+                quantityReal : 2000
+                price : 2.389
+                "priceTaxi" : 2.561
+                "drugsBase_DrugName" : "阿莫西林"
+                "drugsBase_Specification" : "20片/盒"
+                "drugsBase_Manufacturer" : "重庆金鹏纺织卫生用品有限公司"
+                "approvalNumber" : "国药准字Z20063568"
+
+
+
+#"采购退货单" :
+#    secretKey : B5599595-21CB-0C45-D491-04EA48DC235D
+#    data:
+#      uniqueCode : ${random.int[1000000,2000000]}
+#      pwNumber : ${random.int[2000000,3000000]}
+#      serialNumberTime : "2022-6-6 14:33:34"
+#      supplierNameId : ${random.int[2000,5000]}
+#      details :
+#                uniqueCode : ${uniqueCode}
+#                pwNumber : ${pwNumber}
+#                psn : ${random.int[5000000,8000000]}
+#                priceTaxi : ${random.int[10,20]}
+#                drugsBase_DrugName : "阿莫西林"
+#                drugsBase_Specification : "20片/盒"
+#                drugsBase_Manufacturer : "重庆金鹏纺织卫生用品有限公司"
+#                approvalNumber : "国药准字Z20063568"
 
 
