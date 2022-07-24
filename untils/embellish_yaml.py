@@ -1,5 +1,5 @@
 import jinja2
-import os, random, yaml,string
+import os, random, yaml, string
 from string import Template
 
 data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config',
