@@ -13,12 +13,10 @@ class RTS:
         self.filename = filename
         self.hosttype = hosttype
 
-    @render
     def rts(self):
         url = ReadIni(self.hosttype).read_ini() + ReadYaml(self.filename).get_uri()
         data_dict = ReadYaml(self.filename).get_datas()
         data = (json.dumps(data_dict, ensure_ascii=False))
-        print(data)
         res = requests.post(url=url, params=data, headers={"Content-Type": "application/json"})
         return res
 
