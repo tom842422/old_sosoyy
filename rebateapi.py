@@ -5,9 +5,6 @@ from untils.read_yaml import ReadYaml
 from untils.read_ini import ReadIni
 
 
-# r = ReadYaml('采购入库单').get_uri()
-
-
 class RTS:
     def __init__(self, hosttype, filename):
         self.filename = filename
@@ -17,7 +14,7 @@ class RTS:
         url = ReadIni(self.hosttype).read_ini() + ReadYaml(self.filename).get_uri()
         data = ReadYaml(self.filename).get_datas()
         r = requests.post(url=url, data=data)
-        print(r)
+        return r
 
 
 if __name__ == '__main__':
