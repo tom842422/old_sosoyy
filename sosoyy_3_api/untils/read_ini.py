@@ -12,13 +12,14 @@ class ReadIni:
     ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'setting.ini')
 
     def __init__(self, hosttype):
+        # 接口类型
         self.hosttype = hosttype
 
     def read_ini(self):
         conf = configparser.ConfigParser()
         conf.read(self.ini_path, encoding='utf8')
-        res_host = conf['host'][self.hosttype]
-        return res_host
+        # 根据接口类型返回对应的host
+        return conf['host'][self.hosttype]
 
 
 if __name__ == '__main__':

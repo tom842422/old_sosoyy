@@ -15,19 +15,20 @@ import ast
 
 
 class RTS:
+    # 传入接口类型和单据类型
     def __init__(self, hosttype, filename):
         self.filename = filename
         self.hosttype = hosttype
 
     def rts(self):
+        # 读取并拼接成url
         url = ReadIni(self.hosttype).read_ini() + ReadYaml(self.filename).get_uri()
+        # 读取测试数据
         data_dict = ReadYaml(self.filename).get_datas()
+        # 序列化处理
         data = ast.literal_eval(data_dict)
-        print()
         res = requests.post(url=url, json=data, headers={"Content-Type": "application/json"})
         return res
-
-
 
 
 if __name__ == '__main__':

@@ -16,17 +16,19 @@ class ReadYaml:
                              'manufacturing_data.yaml')
 
     def __init__(self, filename):
+        # 单据类型
         self.filename = filename
 
     def get_uri(self):
         with open(self.uri_path, 'r', encoding='utf8') as f:
-            uri_yaml = yaml.load(f, Loader=yaml.FullLoader)
-        uri = uri_yaml[self.filename]
-        return uri
+            uri = yaml.load(f, Loader=yaml.FullLoader)
+        # 返回单据类型下的uri
+        return uri[self.filename]
 
     def get_datas(self):
         with open(self.data_path, 'r', encoding='utf8') as f:
             data_yaml = yaml.load(f, Loader=yaml.FullLoader)[self.filename]
+        # 返回单据类型下的测试数据，并进行编码处理，避免中文乱码
         return json.dumps(data_yaml, ensure_ascii=False)
 
 
