@@ -1,0 +1,110 @@
+采购入库单:
+  secretKey: &key 123456
+  data:
+    - uniqueCode: &ucode_1 weg5wg1
+      pwNumber: &pwnum_1 D12567891
+      serialNumberTime: "2022-2-3 15:40:00"
+      supplierNameId: &nameid 12345
+      details:
+        - uniqueCode: *ucode_1
+          pwNumber: *pwnum_1
+          psn: &psn 13343545
+          quantityReal: 2000
+          price: 2.389
+          priceTaxi: 2.561
+          drugsBase_DrugName: "阿莫西林"
+          drugsBase_Specification: "20片/盒"
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
+          approvalNumber: "国药准字Z20063568"
+
+
+
+采购退货单:
+  secretKey: *key
+  data:
+    - uniqueCode: &ucode_2 wg5weg2
+      prNumber: &pwnum_2 D12567892
+      serialNumberTime: "2022-6-6 14:33:34"
+      supplierNameId: *nameid
+      details:
+        - uniqueCode: *ucode_2
+          prNumber: *pwnum_2
+          psn: *psn
+          rebateCount: 1800
+          price: 2.389
+          priceTaxi: 2.561
+          drugsBase_DrugName: "阿莫西林"
+          drugsBase_Specification: "20片/盒"
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
+          approvalNumber: "国药准字Z20063568"
+
+配送出库单:
+  secretKey: *key
+  data:
+    - uniqueCode: &ucode_3 wg5weg3
+      deliNumber: &pwnum_3 D12567893
+      serialNumberTime: "2022-6-6 14:33:34"
+      supplierNameId: *nameid
+      details:
+        - uniqueCode: *ucode_3
+          deliNumber: *pwnum_3
+          psn: *psn
+          quantityReal: 1800
+          price: 2.489
+          priceTaxi: 2.661
+          drugsBase_DrugName: "阿莫西林"
+          drugsBase_Specification: "20片/盒"
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
+          approvalNumber: "国药准字Z20063568"
+
+零售销售单:
+  secretKey: *key
+  data:
+    - uniqueCode: &ucode_4 wg5weg4
+      rsoNumber: &pwnum_4 D12567894
+      salesOrganizationNo: &saleno 1231232
+      serialNumberTime: "2022-6-6 14:33:34"
+      details:
+        - uniqueCode: *ucode_4
+          rsoNumber: *pwnum_4
+          psn: *psn
+          quantity: 1800
+          price: 2.489
+          priceTaxi: 2.661
+          drugsBase_DrugName: "阿莫西林"
+          drugsBase_Specification: "20片/盒"
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
+          approvalNumber: "国药准字Z20063568"
+
+批发销售单:
+  secretKey: *key
+  data:
+    - uniqueCode: &ucode_5 wg5weg5
+      woNumber: &pwnum_5 D12567895
+      salesOrganizationNo: *saleno
+      serialNumberTime: "2022-6-6 14:33:34"
+      details:
+        - uniqueCode: *ucode_5
+          woNumber: *pwnum_5
+          psn: *psn
+          quantity: 1800
+          price: 2.489
+          priceTaxi: 2.661
+          drugsBase_DrugName: "阿莫西林"
+          drugsBase_Specification: "20片/盒"
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
+          approvalNumber: "国药准字Z20063568"
+
+付款单:
+  secretKey: *key
+  data:
+    - uniqueCode: &ucode_6 wg5weg6
+      rNumber: &pwnum_6 D12567896
+      salesOrganizationNo: *saleno
+      serialNumberTime: "2022-6-6 14:33:34"
+      supplierNameId: *saleno
+      amountActually: 2000
+      details:
+        - uniqueCode: *ucode_6
+          rNumber: *pwnum_6
+          number: *pwnum_1
