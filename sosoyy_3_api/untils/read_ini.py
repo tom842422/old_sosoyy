@@ -9,6 +9,9 @@ import os
 
 
 class ReadIni:
+    """
+
+    """
     ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'setting.ini')
 
     def __init__(self, hosttype):

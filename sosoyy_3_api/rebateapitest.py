@@ -15,8 +15,12 @@ import ast
 
 
 class RTS:
-    # 传入接口类型和单据类型
+
     def __init__(self, hosttype, filename):
+        """
+        :param hosttype: 接口类型
+        :param filename: 单据类型
+        """
         self.filename = filename
         self.hosttype = hosttype
 
