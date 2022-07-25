@@ -1,5 +1,7 @@
 import code
 import os
+import traceback
+
 import requests
 import time
 import json
@@ -25,10 +27,6 @@ class RTS:
         return res
 
 
-if __name__ == '__main__':
-    host_type = input('请输入接口类型:')
-    file_name = input('请输入单据类型:')
-    r = RTS(hosttype=host_type, filename=file_name).rts()
-    print(r, '\n', r.json())
-    time.sleep(20)
-    code.interact(banner="", local=locals())
+
+
+
