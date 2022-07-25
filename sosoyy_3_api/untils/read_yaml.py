@@ -29,5 +29,8 @@ class ReadYaml:
             data_yaml = yaml.load(f, Loader=yaml.FullLoader)[self.filename]
         return json.dumps(data_yaml, ensure_ascii=False)
 
-
-
+if __name__ == '__main__':
+    r_uri = ReadYaml(filename='采购退货单').get_uri()
+    r_data = ReadYaml(filename='采购退货单').get_datas()
+    print(r_data)
+    print(r_uri)

@@ -1,8 +1,8 @@
 采购入库单:
-  secretKey: &key 123456
+  secretKey: &key "123456"
   data:
-    - uniqueCode: &ucode_1 "weg5wg1"
-      pwNumber: &pwnum_1 "D12567891"
+    - uniqueCode: &ucode_1 "weg5wg2"
+      pwNumber: &pwnum_1 "D12567892"
       serialNumberTime: "2022-2-3 15:40:00"
       supplierNameId: &nameid "12345"
       details:
