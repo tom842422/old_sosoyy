@@ -21,5 +21,5 @@ class RTS:
 
 
 if __name__ == '__main__':
-    r = RTS(hosttype='对接接口', filename='采购入库单').rts()
+    r = RTS(hosttype='对接接口', filename='批发销售单').rts()
     print(r, '\n', r.json())

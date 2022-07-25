@@ -30,8 +30,4 @@ class ReadYaml:
         return json.dumps(data_yaml, ensure_ascii=False)
 
 
-if __name__ == '__main__':
-    r_uri = ReadYaml('采购入库单').get_uri()
-    r_data = ReadYaml('采购入库单').get_datas()
-    print(r_uri)
-    print(r_data)
+
