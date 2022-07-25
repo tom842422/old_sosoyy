@@ -4,3 +4,5 @@
 零售销售单 : "/RebateRetailSalesOrder"
 批发销售单 : "/RebateRetailWholesaleOrder"
 付款单 : "/RebateReceipt"
+导出单据数据到excel : "/ExportExcelBillData"
+导出单据数据到json : "/GetListBillData"

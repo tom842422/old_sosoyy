@@ -23,10 +23,16 @@ class RTS:
         url = ReadIni(self.hosttype).read_ini() + ReadYaml(self.filename).get_uri()
         data_dict = ReadYaml(self.filename).get_datas()
         data = ast.literal_eval(data_dict)
+        print()
         res = requests.post(url=url, json=data, headers={"Content-Type": "application/json"})
         return res
 
 
 
 
-
+if __name__ == '__main__':
+    re = ReadYaml('导出单据数据到json').get_datas()
+    print()
+    r = RTS(hosttype='对接接口', filename='导出单据数据到json').rts()
+    print()
+    print(r)
