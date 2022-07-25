@@ -1,57 +1,64 @@
+costPrice : &costprice 1.99 # 采购成本价
+billtype : &billtype "采购入库单"  # 单据类型：采购入库单，采购退货单，配送出库单，零售销售单，批发销售单，付款单
+st : &st "2022-1-6" # 开始查询主表单据时间
+et : &et "2022-6-6" # 结束查询主表单据时间
+#单据类型 + 时段设置 + ERP编号(PSN) 当前供应商 匹配单据
+
+
 采购入库单:
   secretKey: &key "123456"
   data:
-    - uniqueCode: &ucode_1 "weg5wg2"
-      pwNumber: &pwnum_1 "D12567892"
-      serialNumberTime: "2022-2-3 15:40:00"
-      supplierNameId: &nameid "12345"
+    - uniqueCode: &ucode_1 "weg5wg2"  # 主表唯一编号优E+将根据此字段判断数据是否重复
+      pwNumber: &pwnum_1 "D12567892" # 主表单据编号
+      serialNumberTime: &bt "2022-5-2 15:40:00" # 主表单据时间
+      supplierNameId: &nameid "12345" # 主表供应商编号
       details:
-        - uniqueCode: *ucode_1
-          pwNumber: *pwnum_1
-          psn: &psn "13343545"
-          quantityReal: &count "2000"
-          price: &price "2.315"
-          priceTaxi: &pricet "3.12"
-          drugsBase_DrugName: "阿莫西林"
-          drugsBase_Specification: "20片/盒"
-          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
-          approvalNumber: "国药准字Z20063568"
+        - uniqueCode: *ucode_1 # 明细唯一编号优E+将根据此字段判断数据是否重复
+          pwNumber: *pwnum_1 # 主表单据编号
+          psn: &psn "SP0001" # 商品编号
+          quantityReal: &count "2000" # 数量
+          price: &price "2.315" # 不含税单价
+          priceTaxi: &pricet "3.12" # 含税单价
+          drugsBase_DrugName: "阿莫西林" # 药品名称
+          drugsBase_Specification: "20片/盒" # 规格
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司" # 生产厂家
+          approvalNumber: "国药准字Z20063568" # 批准文号
 
 
 
 采购退货单:
   secretKey: *key
   data:
-    - uniqueCode: &ucode_2 "wg5weg2"
-      prNumber: &pwnum_2 "D12567892"
-      serialNumberTime: "2022-6-6 14:33:34"
-      supplierNameId: *nameid
+    - uniqueCode: &ucode_2 "wg5weg2" # 主表唯一编号优E+将根据此字段判断数据是否重复
+      prNumber: &pwnum_2 "D12567892" # 主表单据编号
+      serialNumberTime: *bt # 主表单据时间
+      supplierNameId: *nameid  # 主表单据时间
       details:
-        - uniqueCode: *ucode_2
-          prNumber: *pwnum_2
-          psn: *psn
-          rebateCount: *count
-          price: *price
-          priceTaxi: *pricet
-          drugsBase_DrugName: "阿莫西林"
-          drugsBase_Specification: "20片/盒"
-          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
-          approvalNumber: "国药准字Z20063568"
+        - uniqueCode: *ucode_2  # 主表唯一编号优E+将根据此字段判断数据是否重复
+          prNumber: *pwnum_2 # 主表单据编号
+          psn: *psn  # 商品编号
+          rebateCount: *count # 数量
+          price: *price #不含税单价
+          priceTaxi: *pricet # 含税单价
+          drugsBase_DrugName: "阿莫西林" # 药品名称
+          drugsBase_Specification: "20片/盒" #药品规格
+          drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司" # 生产厂家
+          approvalNumber: "国药准字Z20063568" # 批准文号
 
 配送出库单:
   secretKey: *key
   data:
-    - uniqueCode: &ucode_3 "wg5weg3"
-      deliNumber: &pwnum_3 "D12567893"
-      serialNumberTime: "2022-6-6 14:33:34"
-      supplierNameId: *nameid
+    - uniqueCode: &ucode_3 "wg5weg3" # 主表唯一编号优E+将根据此字段判断数据是否重复
+      deliNumber: &pwnum_3 "D12567893" # 主表单据编号
+      serialNumberTime: *bt # 主表单据时间
+      supplierNameId: *nameid # 主表门店编号
       details:
-        - uniqueCode: *ucode_3
-          deliNumber: *pwnum_3
-          psn: *psn
-          quantityReal: *count
-          price: *price
-          priceTaxi: *pricet
+        - uniqueCode: *ucode_3 # 主表唯一编号优E+将根据此字段判断数据是否重复
+          deliNumber: *pwnum_3 # 主表单据编号
+          psn: *psn # 商品编号
+          quantityReal: *count # 数量
+          price: *price # 不含税单价
+          priceTaxi: *pricet # 含税单价
           drugsBase_DrugName: "阿莫西林"
           drugsBase_Specification: "20片/盒"
           drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
@@ -63,7 +70,7 @@
     - uniqueCode: &ucode_4 "wg5weg4"
       rsoNumber: &pwnum_4 "D12567894"
       salesOrganizationNo: &saleno "1231232"
-      serialNumberTime: "2022-6-6 14:33:34"
+      serialNumberTime: *bt
       details:
         - uniqueCode: *ucode_4
           rsoNumber: *pwnum_4
@@ -79,17 +86,18 @@
 批发销售单:
   secretKey: *key
   data:
-    - uniqueCode: &ucode_5 "wg5weg5"
-      woNumber: &pwnum_5 "D12567895"
-      salesOrganizationNo: *saleno
-      serialNumberTime: "2022-6-6 14:33:34"
+    - uniqueCode: &ucode_5 "wg5weg5" # 主表唯一编号优E+将根据此字段判断数据是否重复
+      woNumber: &pwnum_5 "D12567895" # 主表单据编号
+      salesOrganizationNo: *saleno # 主表客户编号
+      serialNumberTime: *bt # 主表单据时间
       details:
-        - uniqueCode: *ucode_5
-          woNumber: *pwnum_5
-          psn: *psn
-          quantity: *count
-          price: *price
-          priceTaxi: *pricet
+        - uniqueCode: *ucode_5 # 主表唯一编号优E+将根据此字段判断数据是否重复
+          woNumber: *pwnum_5 # 主表单据编号
+          psn: *psn # 商品编号
+          quantity: *count #数量
+          price: *price # 不含税单价
+          priceTaxi: *pricet #含税单价
+          costPrice : *costprice # 采购成本价
           drugsBase_DrugName: "阿莫西林"
           drugsBase_Specification: "20片/盒"
           drugsBase_Manufacturer: "重庆金鹏纺织卫生用品有限公司"
@@ -101,10 +109,23 @@
     - uniqueCode: &ucode_6 "wg5weg6"
       rNumber: &pwnum_6 "D12567896"
       salesOrganizationNo: *saleno
-      serialNumberTime: "2022-6-6 14:33:34"
+      serialNumberTime: *bt
       supplierNameId: *saleno
       amountActually: *count
       details:
         - uniqueCode: *ucode_6
           rNumber: *pwnum_6
-          number: *pwnum_1
+          number: *pwnum_1 # 付款单关联单据编号(可以是入库单，零售单等)
+
+导出单据数据到excel :
+  secretKey : *key
+  billTypeName : *billtype #单据类型名称
+  startTime : *st #开始查询时间
+  endTime : *et # 结束查询时间
+
+导出单据数据到json :
+  secretKey : *key
+  billTypeName : *billtype #单据类型名称
+  startTime : *st #开始查询时间
+  endTime : *et # 结束查询时间
+
