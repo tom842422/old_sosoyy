@@ -6,7 +6,7 @@ import requests
 import time
 import json
 from past.builtins import raw_input
-from sosoyy_3_api.untils.read_yaml import ReadYaml
+from sosoyy_3_api.untils.readyaml import ReadYaml
 from sosoyy_3_api.untils.read_ini import ReadIni
 import yaml
 import random

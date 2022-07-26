@@ -10,9 +10,9 @@ import yaml
 
 
 class ReadYaml:
-    uri_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config',
+    uri_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config_3',
                             'manufacturing_uri.yaml')
-    data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config',
+    data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config_3',
                              'manufacturing_data.yaml')
 
     def __init__(self, filename):

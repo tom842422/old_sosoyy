@@ -1,8 +1,7 @@
 import time
-import traceback
-from sosoyy_3_api.untils.read_yaml import ReadYaml
+from sosoyy_3_api.untils.readyaml import ReadYaml
 
-from sosoyy_3_api.rebateapitest import RTS
+from sosoyy_3_api.untils.rebateapitest import RTS
 from sosoyy_3_api.untils.read_ini import ReadIni
 
 if __name__ == '__main__':
@@ -21,11 +20,11 @@ if __name__ == '__main__':
     print(r_url, '\n', result.json())
     nt = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     with open(f'{host_1}已写入数据.txt', 'a+', encoding='utf8') as f:
-        f.write('\n' + fname_1 + '\n' + nt + '  ' + r_url + '\n' + r_data + '\n')
+        f.write('\n' + fname_1 + '    ' + nt + '\n' + r_url + '\n' + r_data + '\n')
     print('**********************************华丽的分割线**********************************', end=' ')
     r_url = ReadIni(host_2).read_ini() + ReadYaml(fname_2).get_uri()
     r_data = ReadYaml(fname_2).get_datas()
     result = RTS(hosttype=host_2, filename=fname_2).rts()
     print(r_url, '\n', result.json())
     with open(f'{host_2}已写入数据.txt', 'a+', encoding='utf8') as f:
-        f.write('\n'+fname_2+'\n' + nt +'  '+ r_url + '\n' + r_data + '\n')
+        f.write('\n' + fname_2 + '    ' + nt + '\n' + r_url + '\n' + r_data + '\n')

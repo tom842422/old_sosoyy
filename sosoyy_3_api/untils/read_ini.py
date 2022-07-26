@@ -9,10 +9,7 @@ import os
 
 
 class ReadIni:
-    """
-
-    """
-    ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'setting.ini')
+    ini_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config_3', 'setting.ini')
 
     def __init__(self, hosttype):
         # 接口类型
