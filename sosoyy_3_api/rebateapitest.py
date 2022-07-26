@@ -36,18 +36,9 @@ class RTS:
         return res
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 95660efb742602ff5d550a3a30387fe13d6c9e8f
 if __name__ == '__main__':
     re = ReadYaml('导出单据数据到json').get_datas()
-    print()
     r = RTS(hosttype='对接接口', filename='导出单据数据到json').rts()
-    print()
-<<<<<<< HEAD
     print(r)
-=======
-    print(r)
->>>>>>> 95660efb742602ff5d550a3a30387fe13d6c9e8f
+
