@@ -7,7 +7,7 @@ import time
 import json
 from past.builtins import raw_input
 from sosoyy_3_api.untils.readyaml import ReadYaml
-from sosoyy_3_api.untils.read_ini import ReadIni
+from sosoyy_3_api.untils.readini import ReadIni
 import yaml
 import random
 import json
@@ -31,7 +31,6 @@ class RTS:
         data_dict = ReadYaml(self.filename).get_datas()
         # 序列化处理
         data = ast.literal_eval(data_dict)
-        print()
         res = requests.post(url=url, json=data, headers={"Content-Type": "application/json"})
         return res
 
