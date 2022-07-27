@@ -1,8 +1,0 @@
-采购入库单 : "/RebatePurcWarehousing"
-采购退货单 : "/RebatePurchaseReturned"
-配送出库单 : "/RebatePurchaseDelivery"
-零售销售单 : "/RebateRetailSalesOrder"
-批发销售单 : "/RebateRetailWholesaleOrder"
-付款单 : "/RebateReceipt"
-导出单据数据到excel : "/ExportExcelBillData"
-导出单据数据到json : "/GetListBillData"

@@ -1,0 +1,167 @@
+data:
+  - cp: &costprice 1.99 # 采购成本价
+    billt: &billtype "批发销售单"  # 导出单据类型：采购入库单，采购退货单，配送出库单，零售销售单，批发销售单，付款单
+    re: &remk 2 #付款单关联单据类型1=采购入库单，2=采购退货单，3=零售销售单，4=批发销售单，5=配送出库单
+    bt: &bt "2022-6-12 15:40:00" # 主表单据时间
+    nd: &nameid "123321" # 供应商编号
+    md : &md '12371'  #门店编号
+    ps: &psn "SP0066" # ERP编号
+    count: &count 1000
+    p: &price 2.9999
+    pt: &pricet 3.0011
+    dn: &dn "维生素D滴剂" #药品名称
+    sc: &sc "12粒*3板" #规格
+    mf: &mf "青岛双鲸药业有限公司" #生产厂家
+    an: &anum "国药准字Z20063568" #批准文号
+    st: &st "2022-1-6" # 开始查询主表单据时间
+    et: &et "2022-7-6" # 结束查询主表单据时间
+    #单据类型 + 时段设置 + ERP编号(PSN) 当前供应商 匹配单据
+采购入库:
+
+  - n1: &ucode_1 "RK1010"
+    n2: &pwnum_1 "RK2010"
+采购退货:
+  - n3: &ucode_2 "TH1001"
+    n4: &pwnum_2 "TH2001"
+配送出库:
+  - n5: &ucode_3 "CK1007"
+    n6: &pwnum_3 "CK2007"
+零售销售:
+  - n7: &ucode_4 "LS1001"
+    n8: &pwnum_4 "LS2001"
+批发销售:
+  - n9: &ucode_5 "PF1001"
+    n10: &pwnum_5 "PF2001"
+付款:
+  - n11: &ucode_6 "FK1001"
+    n12: &pwnum_6 "FK2001"
+
+
+
+
+采购入库单:
+  secretKey: &key "123456"
+  data:
+    - uniqueCode: *ucode_1   # 主表唯一编号优E+将根据此字段判断数据是否重复
+      pwNumber: *pwnum_1  # 主表单据编号
+      serialNumberTime: *bt  # 主表单据时间
+      supplierNameId: *nameid  # 主表供应商编号
+      details:
+        - uniqueCode: *ucode_1 # 明细唯一编号优E+将根据此字段判断数据是否重复
+          pwNumber: *pwnum_1 # 主表单据编号
+          psn: *psn  # 商品编号
+          quantityReal: *count  # 数量
+          price: *price  # 不含税单价
+          priceTaxi: *pricet  # 含税单价
+          drugsBase_DrugName: *dn
+          drugsBase_Specification: *sc
+          drugsBase_Manufacturer: *mf
+          approvalNumber: *anum
+
+
+
+采购退货单:
+  secretKey: *key
+  data:
+    - uniqueCode: *ucode_2  # 主表唯一编号优E+将根据此字段判断数据是否重复
+      prNumber: *pwnum_2  # 主表单据编号
+      serialNumberTime: *bt # 主表单据时间
+      supplierNameId: *nameid  # 主表单据时间
+      details:
+        - uniqueCode: *ucode_2  # 主表唯一编号优E+将根据此字段判断数据是否重复
+          prNumber: *pwnum_2 # 主表单据编号
+          psn: *psn  # 商品编号
+          rebateCount: *count # 数量
+          price: *price #不含税单价
+          priceTaxi: *pricet # 含税单价
+          drugsBase_DrugName: *dn
+          drugsBase_Specification: *sc
+          drugsBase_Manufacturer: *mf
+          approvalNumber: *anum
+
+配送出库单:
+  secretKey: *key
+  data:
+    - uniqueCode: *ucode_3  # 主表唯一编号优E+将根据此字段判断数据是否重复
+      deliNumber: *pwnum_3  # 主表单据编号
+      serialNumberTime: *bt # 主表单据时间
+      supplierNameId: *nameid # 供应商编号
+      salesOrganizationNo : *md # 门店编号
+      details:
+        - uniqueCode: *ucode_3 # 主表唯一编号优E+将根据此字段判断数据是否重复
+          deliNumber: *pwnum_3 # 主表单据编号
+          psn: *psn # 商品编号
+          quantityReal: *count # 数量
+          price: *price # 不含税单价
+          priceTaxi: *pricet # 含税单价
+          drugsBase_DrugName: *dn
+          drugsBase_Specification: *sc
+          drugsBase_Manufacturer: *mf
+          approvalNumber: *anum
+
+零售销售单:
+  secretKey: *key
+  data:
+    - uniqueCode: *ucode_4
+      rsoNumber: *pwnum_4
+      salesOrganizationNo: &saleno
+      serialNumberTime: *bt
+      details:
+        - uniqueCode: *ucode_4
+          rsoNumber: *pwnum_4
+          psn: *psn
+          quantity: *count
+          price: *price
+          priceTaxi: *pricet
+          drugsBase_DrugName: *dn
+          drugsBase_Specification: *sc
+          drugsBase_Manufacturer: *mf
+          approvalNumber: *anum
+
+批发销售单:
+  secretKey: *key
+  data:
+    - uniqueCode: *ucode_5  # 主表唯一编号优E+将根据此字段判断数据是否重复
+      woNumber: *pwnum_5  # 主表单据编号
+      salesOrganizationNo: *saleno # 主表客户编号
+      serialNumberTime: *bt # 主表单据时间
+      details:
+        - uniqueCode: *ucode_5 # 主表唯一编号优E+将根据此字段判断数据是否重复
+          woNumber: *pwnum_5 # 主表单据编号
+          psn: *psn # 商品编号
+          quantity: *count #数量
+          price: *price # 不含税单价
+          priceTaxi: *pricet #含税单价
+          costPrice: *costprice # 采购成本价
+          drugsBase_DrugName: *dn
+          drugsBase_Specification: *sc
+          drugsBase_Manufacturer: *mf
+          approvalNumber: *anum
+
+付款单:
+  secretKey: *key
+  data:
+    - uniqueCode: *ucode_6  # 主表唯一编号优E+将根据此字段判断数据是否重复
+      rNumber: *pwnum_6  # 主表单据编号
+      salesOrganizationNo: *saleno
+      serialNumberTime: *bt
+      supplierNameId: *saleno
+      amountActually: *count
+      details:
+        - uniqueCode: *ucode_6 # 主表唯一编号优E+将根据此字段判断数据是否重复
+          rNumber: *pwnum_6 # 主表单据编号
+          number: *pwnum_1 # 付款单关联单据编号(可以是入库单，零售单等)
+          remk: *remk #单据类型
+
+导出单据数据到excel:
+  secretKey: *key
+  billTypeName: *billtype #单据类型名称
+  startTime: *st #开始查询时间
+  endTime: *et # 结束查询时间
+
+导出单据数据到json:
+  secretKey: *key
+  billTypeName: *billtype #单据类型名称
+  startTime: *st #开始查询时间
+  endTime: *et # 结束查询时间
+
